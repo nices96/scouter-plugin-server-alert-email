@@ -164,7 +164,7 @@ public class EmailPlugin {
 	                            
 	                            if (ignoreNamePattern != null && !"".equals(ignoreNamePattern)) {
 		                            for (String pattern : ignoreNamePattern.split(",")) {
-		                        		if (name.matches(".*[" + pattern.replaceAll("-", "\\\\-") + "].*")) {
+		                        		if (name.matches(pattern.replaceAll("\\*", ".*"))) {
 		                        			return;
 		                        		}
 		                        	}
@@ -172,7 +172,7 @@ public class EmailPlugin {
 
 	                            if (ignoreTitlePattern != null && !"".equals(ignoreTitlePattern)) {
 		                            for (String pattern : ignoreTitlePattern.split(",")) {
-		                        		if (title.matches(".*[" + pattern.replaceAll("-", "\\\\-") + "].*")) {
+		                        		if (title.matches(pattern.replaceAll("\\*", ".*"))) {
 		                        			return;
 		                        		}
 		                        	}
